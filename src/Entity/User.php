@@ -22,19 +22,42 @@ class User implements UserInterface
     private $id;
 
     /**
+     * @var string
+     * 
      * @ORM\Column(type="string", length=255)
      */
     private $username;
 
     /**
+     * @var string
+     * 
      * @ORM\Column(type="string", length=255)
      */
     private $email;
 
     /**
+     * @Assert\Notblank
+     * @Assert\Length(max=4096)
+     * 
+     */
+    private $plainpassword;
+
+    /**
+     * @var string
+     * 
      * @ORM\Column(type="string", length=255)
      */
     private $password;
+
+    /**
+     * 
+     * @ORM\Column(type="array")
+     */
+    private $roles;
+
+    public function __construct(){
+        $this->roles = array('ROLE_USER');
+    }
 
     public function getId(): ?int
     {
@@ -65,15 +88,13 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getPassword(): ?string
+    public function getPlainPassword(): ?string
     {
-        return $this->password;
+        return $this->plainpassword;
     }
 
-    public function setPassword(string $password): self
+    public function setPlainPassword(string $password): self
     {
-        $this->password = $password;
-
-        return $this;
+        $this->plainpassword = $password;;
     }
 }
