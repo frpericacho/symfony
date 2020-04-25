@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ArticleController!
+{% endblock %}
+
+{% block body %}
+    <h2>Bienvenido a la web sobre artículos</h2>
+    <a href="{{path('insertar_articulo')}}">Añadir un artículo</a>
+    <p>Eston son los artículos publicados</p>
+    {% for art in articulos %}
+        <a href="{{path('mostrar_un_articulo', { 'id': art.id })}}">
+            <h3>{{art.titulo}}</h3>
+        </a>
+        <p>{{art.descripcion}}</p>
+    {% endfor %}
+{% endblock %}
