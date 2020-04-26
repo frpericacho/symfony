@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints\Notblank;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -36,7 +37,7 @@ class User implements UserInterface
     private $email;
 
     /**
-     * @Assert\Notblank
+     * @Assert\NotBlank
      * @Assert\Length(max=4096)
      * 
      */
@@ -113,8 +114,5 @@ class User implements UserInterface
         return null;
     }
 
-    public function eraseCredentials()
-    {
-        
-    }
+    public function eraseCredentials(){}
 }
