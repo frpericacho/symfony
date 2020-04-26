@@ -31,6 +31,7 @@ class UsuariosController extends AbstractController
             //Paso3
             $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
             $user->setPlainPassword($password);
+            $user->setPassword($password);
 
             //Paso4
             $em = $this->getDoctrine()->getManager();

@@ -4,12 +4,12 @@
 
 {% block body %}
     {% if error %}
-        <div>{{error.messagekey|trans(error.messageData, 'security)}}</div>
+        <div>{{error.messageKey|trans(error.messageData, 'security')}}</div>
     {% endif %}
 
-    <a href=!{{path('registro_usuario')}}">Registrese</a>
+    <a href="{{path('registro_usuario')}}">Registrese</a>
     <br>
-    <form action="{{path('mostrarArticulos')}}" method="post">
+    <form action="{{path('mostrar_un_articulo')}}" method="post">
         <label for="username">Nombre de Usuario: </label>
         <input type="text" id="username" name="_username" value="{{ last_username }}" />
 

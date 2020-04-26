@@ -46,7 +46,7 @@ class User implements UserInterface
     /**
      * @var string
      * 
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="password", type="string", length=64)
      */
     private $password;
 
@@ -60,48 +60,55 @@ class User implements UserInterface
         $this->roles = array('ROLE_USER');
     }
 
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
 
-    public function getUsername(): ?string
+    public function getUsername()
     {
         return $this->username;
     }
 
-    public function setUsername(string $username): self
+    public function setUsername(string $username)
     {
         $this->username = $username;
 
         return $this;
     }
 
-    public function getEmail(): ?string
+    public function getEmail()
     {
         return $this->email;
     }
 
-    public function setEmail(string $email): self
+    public function setEmail(string $email)
     {
         $this->email = $email;
 
         return $this;
     }
 
-    public function getPlainPassword(): ?string
+    public function getPlainPassword()
     {
         return $this->plainpassword;
     }
 
     public function setPlainPassword(string $password)
     {
-        $this->plainpassword = $password;;
+        $this->plainpassword = $password;
     }
 
     public function getPassword()
     {
         return null;   
+    }
+
+    public function setPassword(string $password)
+    {
+        $this->password = $password;
+
+        return $this;
     }
 
     public function getRoles(): ?array

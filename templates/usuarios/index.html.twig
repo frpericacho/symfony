@@ -3,9 +3,7 @@
 {% block title %}Registro{% endblock %}
 
 {% block body %}
-    Pulse <a href="{{path('homepage')}}">aqui</a> para entrar en su cuenta.
-    <br>
-    {{form_star(form)}}
+    {{form_start(form)}}
         {{form_row(form.username)}}
         {{form_row(form.email)}}
         {{form_row(form.plainPassword.first)}}
